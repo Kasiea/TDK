@@ -47,6 +47,8 @@ public class MainExpressActivity extends Activity {
     private String produceTime = null;//校准时间
     private String limiteddate = null; // 到期时间
     private String mPrinterNumber = "1";//打印张数，默认为1
+    private int codeFlage = 1;//选择大小标签标志
+    private RadioGroup mChooseCodeType = null;//选择大小标签标志组件
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,8 @@ public class MainExpressActivity extends Activity {
         setContentView(R.layout.user_interface);
 
         initView();//初始化组件
-        getPrintData();
+        initData();//初始化数据
+        getPrintData();//获取打印机数据
 
         DemoApplication app = (DemoApplication) getApplication();
         if (app.printer != null) {
@@ -64,13 +67,30 @@ public class MainExpressActivity extends Activity {
         }
     }
 
-
-    private void initView() {
-        buttonPrint = (Button) findViewById(R.id.Print);
+    //初始化数据
+    private void initData(){
+        mChooseCodeType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            //大小标签选择监听
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId==R.id.bigMarker){
+                    codeFlage = 1;
+                }else if(checkedId==R.id.smallMarker){
+                    codeFlage = 2;
+                }
+            }
+        });
 
     }
 
-    // 更新单据信息
+    //初始化组件
+    private void initView() {
+        buttonPrint = (Button) findViewById(R.id.Print);
+        mChooseCodeType = (RadioGroup)findViewById(R.id.chooseMarkerType);
+
+    }
+
+    //获取打印机数据
     private void getPrintData() {
         mnumber = ((EditText) findViewById(R.id.number))
                 .getText().toString();
@@ -103,6 +123,7 @@ public class MainExpressActivity extends Activity {
         return true;
     }
 
+    //打印操作
     public boolean print() {
         getPrintData();//获取打印数据
         if (!Printer.getJPLsupport()) {
@@ -117,23 +138,45 @@ public class MainExpressActivity extends Activity {
             amount = Integer.parseInt(mPrinterNumber);
         }
         for (; startIndex <= amount; startIndex++) {
-            jpl.page.start(0, 0, 576, 100, PAGE_ROTATE.x0);
+            //jpl.page.start(0, 0, 576, 100, PAGE_ROTATE.x0);
 //			jpl.text.drawOut(150,30, mInputInfo, 32, true, false, false, false, TEXT_ENLARGE.x2,  TEXT_ENLARGE.x2, ROTATE.x0);
 //			jpl.graphic.line(8,100,568,100, 30);
 //			jpl.feedMarkOrGap(0);
 //			jpl.feedNextLabelEnd(0);
 
-            //Number
-            jpl.text.drawOut(65, 32, "：");
-            jpl.text.drawOut(80, 32, mnumber);
+            //大标签打印
+            if (codeFlage == 1)
+            {
+                jpl.page.start(0, 0, 576, 150, PAGE_ROTATE.x0);
+                //Number
+                jpl.text.drawOut(150, 0, "校准编号No：");
+                jpl.text.drawOut(350, 0, mnumber);
 
-            //LimitedDate
-            jpl.text.drawOut(390, 32, "：");
-            jpl.text.drawOut(410, 32, limiteddate);
+                //LimitedDate
+                jpl.text.drawOut(150, 32, "校准时间Done：");
+                jpl.text.drawOut(350, 32, limiteddate);
 
-            //ProduceDate
-            jpl.text.drawOut(390, 63, "：");
-            jpl.text.drawOut(410, 63, produceTime);
+                //ProduceDate
+                jpl.text.drawOut(150, 63, "到期时间Due：");
+                jpl.text.drawOut(350, 63, produceTime);
+            }
+
+            //小标签打印
+            if (codeFlage == 2)
+            {
+                jpl.page.start(0, 0, 576, 100, PAGE_ROTATE.x0);
+                //Number
+                jpl.text.drawOut(150, 0, "No：");
+                jpl.text.drawOut(250, 0, mnumber);
+
+                //LimitedDate
+                jpl.text.drawOut(150, 32, "Done：");
+                jpl.text.drawOut(250, 32, limiteddate);
+
+                //ProduceDate
+                jpl.text.drawOut(150, 63, "Due：");
+                jpl.text.drawOut(250, 63, produceTime);
+            }
 
             jpl.page.end();
             jpl.page.print();
