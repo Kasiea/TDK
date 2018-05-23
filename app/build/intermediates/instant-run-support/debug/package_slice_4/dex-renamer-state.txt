@@ -1,0 +1,4 @@
+#Wed May 23 21:41:08 CST 2018
+base.0=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/transforms/dexMerger/debug/5
+renamed.0=classes.dex
+file.0=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/transforms/dexMerger/debug/5/classes.dex
