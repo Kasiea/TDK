@@ -8,7 +8,7 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/jq/printer/cpcl/Page.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/jq/printer/cpcl/Text.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/jq/ui/MainActivity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jq/ui/express/MainExpressActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jq/ui/express/BigMarkerActivity.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

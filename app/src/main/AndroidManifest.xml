@@ -42,7 +42,7 @@
             android:label="@string/title_activity_enforcement_bill_setting" >
         </activity>
         <activity
-            android:name="com.jq.ui.express.MainExpressActivity"
+            android:name="com.jq.ui.express.BigMarkerActivity"
             android:label="@string/title_activity_main_express" >
         </activity>
         <activity
@@ -52,6 +52,10 @@
         <activity
             android:name="com.jq.ui.express_form.ExpressFormMainActivity"
             android:label="@string/title_activity_express_form_main" >
+        </activity>
+        <activity
+            android:name="com.jq.ui.express.SmallMarkerActivity"
+            android:label="SmallMarkerActivity">
         </activity>
         <activity
             android:name="com.jq.ui.SerialPortPreferences"

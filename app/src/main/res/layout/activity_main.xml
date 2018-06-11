@@ -34,7 +34,18 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/BTButton"
         android:layout_below="@+id/BTButton"
-        android:onClick="ButtonExpress_click"
-        android:text="标签信息填写" />
+        android:onClick="ButtonExpress_clickBig"
+        android:text="大标签信息填写" />
+
+    <Button
+        android:id="@+id/ButtonExpressBillSmall"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/BTButton"
+        android:layout_below="@+id/ButtonExpressBill"
+        android:onClick="ButtonExpress_clickSmall"
+        android:text="小标签信息填写" />
+
+
 
 </RelativeLayout>

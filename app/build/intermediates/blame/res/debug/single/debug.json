@@ -72,12 +72,12 @@
         "source": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/src/main/res/drawable-hdpi/shenzhenhangkong.bmp"
     },
     {
-        "merged": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/merged/debug/layout_user_interface.xml.flat",
-        "source": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/src/main/res/layout/user_interface.xml"
-    },
-    {
         "merged": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/merged/debug/layout_activity_main_express.xml.flat",
         "source": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/src/main/res/layout/activity_main_express.xml"
+    },
+    {
+        "merged": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/merged/debug/layout_big_marker_activity.xml.flat",
+        "source": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/src/main/res/layout/big_marker_activity.xml"
     },
     {
         "merged": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/merged/debug/drawable-hdpi_produce_date.png.flat",
@@ -90,6 +90,10 @@
     {
         "merged": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/merged/debug/drawable-hdpi_data.png.flat",
         "source": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/src/main/res/drawable-hdpi/data.png"
+    },
+    {
+        "merged": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/merged/debug/layout_small_marker_activity.xml.flat",
+        "source": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/src/main/res/layout/small_marker_activity.xml"
     },
     {
         "merged": "/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/merged/debug/xml_serial_port_preferences.xml.flat",

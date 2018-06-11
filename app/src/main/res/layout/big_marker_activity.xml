@@ -116,22 +116,6 @@
                  android:orientation="vertical"
                  >
 
-             <RadioButton
-                 android:id="@+id/bigMarker"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="大标签"
-                 android:checked="true"
-                 />
-
-             <RadioButton
-                 android:id="@+id/smallMarker"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="小标签"
-                 android:checked="false"
-                 />
-
              </RadioGroup>
 
              <CheckBox

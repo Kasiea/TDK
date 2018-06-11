@@ -1,23 +1,15 @@
 package com.jq.ui.express;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.newmedical.R;
@@ -34,7 +26,7 @@ import com.jq.printer.jpl.Page.PAGE_ROTATE;
 import com.jq.printer.jpl.Text.TEXT_ENLARGE;
 import com.jq.ui.DemoApplication;
 
-public class MainExpressActivity extends Activity {
+public class BigMarkerActivity extends Activity {
 
     //打印相关
     int startIndex;//开始打印的序号
@@ -49,16 +41,13 @@ public class MainExpressActivity extends Activity {
     private String produceTime = null;//校准时间
     private String limiteddate = null; // 到期时间
     private String mPrinterNumber = "1";//打印张数，默认为1
-    private int codeFlage = 1;//选择大小标签标志
-    private RadioGroup mChooseCodeType = null;//选择大小标签标志组件
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_interface);
+        setContentView(R.layout.big_marker_activity);
 
         initView();//初始化组件
-        initData();//初始化数据
         getPrintData();//获取打印机数据
 
         DemoApplication app = (DemoApplication) getApplication();
@@ -69,26 +58,9 @@ public class MainExpressActivity extends Activity {
         }
     }
 
-    //初始化数据
-    private void initData(){
-        mChooseCodeType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            //大小标签选择监听
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId==R.id.bigMarker){
-                    codeFlage = 1;
-                }else if(checkedId==R.id.smallMarker){
-                    codeFlage = 2;
-                }
-            }
-        });
-
-    }
-
     //初始化组件
     private void initView() {
         buttonPrint = (Button) findViewById(R.id.Print);
-        mChooseCodeType = (RadioGroup)findViewById(R.id.chooseMarkerType);
 
     }
 
@@ -98,8 +70,8 @@ public class MainExpressActivity extends Activity {
                 .getText().toString();
         produceTime = ((EditText) findViewById(R.id.producedate)).getText().toString();
         limiteddate = ((EditText) findViewById(R.id.limiteddate)).getText().toString();
-        mPrinterNumber = ((EditText)findViewById(R.id.PrinterNumber)).getText().toString();
-        checkBox = (CheckBox)findViewById(R.id.numberAdd);
+        mPrinterNumber = ((EditText) findViewById(R.id.PrinterNumber)).getText().toString();
+        checkBox = (CheckBox) findViewById(R.id.numberAdd);
     }
 
 
@@ -148,42 +120,22 @@ public class MainExpressActivity extends Activity {
 //			jpl.feedNextLabelEnd(0);
 
             //大标签打印
-            if (codeFlage == 1)
-            {
-                jpl.page.start(0, 0, 576, 240, PAGE_ROTATE.x0);
-                //Number
-                //校准编号No
-                jpl.text.drawOut(260, 55, mnumber);
+            jpl.page.start(0, 0, 576, 240, PAGE_ROTATE.x0);
+            //Number
+            //校准编号No
+            jpl.text.drawOut(270, 55, mnumber);
 
-                //ProduceDate
-                //校准时间Due
-                jpl.text.drawOut(260, 100, produceTime);
+            //ProduceDate
+            //校准时间Due
+            jpl.text.drawOut(270, 100, produceTime);
 
-                //LimitedDate
-                //到期时间Done
-                jpl.text.drawOut(260, 145, limiteddate);
+            //LimitedDate
+            //到期时间Done
+            jpl.text.drawOut(270, 145, limiteddate);
 
-                //流水号自增
-                if (checkBox.isChecked()) {
-                    mnumber = String.valueOf(Integer.parseInt(mnumber) + 1);
-                }
-            }
-
-            //小标签打印
-            if (codeFlage == 2)
-            {
-                jpl.page.start(0, 0, 576, 100, PAGE_ROTATE.x0);
-                //Number
-                jpl.text.drawOut(150, 0, "No：");
-                jpl.text.drawOut(250, 0, mnumber);
-
-                //LimitedDate
-                jpl.text.drawOut(150, 32, "Done：");
-                jpl.text.drawOut(250, 32, limiteddate);
-
-                //ProduceDate
-                jpl.text.drawOut(150, 63, "Due：");
-                jpl.text.drawOut(250, 63, produceTime);
+            //流水号自增
+            if (checkBox.isChecked()) {
+                mnumber = String.valueOf(Integer.parseInt(mnumber) + 1);
             }
 
             jpl.page.end();

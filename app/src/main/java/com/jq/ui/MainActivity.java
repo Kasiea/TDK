@@ -6,13 +6,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.InvalidParameterException;
 
+import com.jq.ui.express.SmallMarkerActivity;
 import com.newmedical.R;
 import com.jq.port.SerialPort;
 import com.jq.printer.JQPrinter;
 import com.jq.printer.Printer_define.PRINTER_MODEL;
 import com.jq.ui.card_reader.MainCardReaderActivity;
 import com.jq.ui.enforcement_bill.ebMainActivity;
-import com.jq.ui.express.MainExpressActivity;
+import com.jq.ui.express.BigMarkerActivity;
 import com.jq.ui.express_form.ExpressFormMainActivity;
 
 import android.os.Bundle;
@@ -45,6 +46,7 @@ public class MainActivity extends Activity {
 	private DemoApplication mApplication = null;
 //	private Button mButtonLawEnforcementBill = null;
 	private Button mButtonExpressBill = null;
+	private Button mButtonExpressBillSmall = null;
 //	private Button mButtonExpressForm = null;
 //	private Button mButtonCardReader = null;
 	private Button mButtonBtScan = null;
@@ -73,6 +75,9 @@ public class MainActivity extends Activity {
         
         mButtonExpressBill = (Button)findViewById(R.id.ButtonExpressBill);
         mButtonExpressBill.setVisibility(Button.INVISIBLE);
+
+        mButtonExpressBillSmall = (Button)findViewById(R.id.ButtonExpressBillSmall);
+        mButtonExpressBillSmall.setVisibility(Button.INVISIBLE);
         
 //        mButtonCardReader = (Button)findViewById(R.id.ButtonCardReader);
 //        mButtonCardReader.setVisibility(Button.INVISIBLE);
@@ -282,7 +287,7 @@ public class MainActivity extends Activity {
 		return ;
 	}  
     
-    public void ButtonExpress_click(View view)
+    public void ButtonExpress_clickBig(View view)
 	{
     	// Cancel discovery because it will slow down the connection  
 		if(btAdapter.isDiscovering())
@@ -301,8 +306,31 @@ public class MainActivity extends Activity {
 			return;
 		}
 	
-    	Intent myIntent = new Intent(MainActivity.this, MainExpressActivity.class);
+    	Intent myIntent = new Intent(MainActivity.this, BigMarkerActivity.class);
     	startActivity(myIntent);    	
+	}
+
+	public void ButtonExpress_clickSmall(View view)
+	{
+		// Cancel discovery because it will slow down the connection
+		if(btAdapter.isDiscovering())
+			btAdapter.cancelDiscovery();
+
+		if (!printer.waitBluetoothOn(5000))
+		{
+			mButtonBtScan.setText("选择打印机");
+			setButtonVisible(false);
+			return;
+		}
+		if (!printer.isOpen)
+		{
+			mButtonBtScan.setText("选择打印机");
+			setButtonVisible(false);
+			return;
+		}
+
+		Intent myIntent = new Intent(MainActivity.this, SmallMarkerActivity.class);
+		startActivity(myIntent);
 	}
     
     private void setButtonVisible(boolean visible)
@@ -314,6 +342,7 @@ public class MainActivity extends Activity {
     		state = Button.INVISIBLE;
 //    	mButtonLawEnforcementBill.setVisibility(state);
 		mButtonExpressBill.setVisibility(state);
+		mButtonExpressBillSmall.setVisibility(state);
 //		mButtonExpressForm.setVisibility(state);
 //		mButtonCardReader.setVisibility(state);
 
