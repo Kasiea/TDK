@@ -56,16 +56,17 @@ public final class R {
     public static final int limiteddate=0x7f04000f;
     public static final int linearLayout1=0x7f040010;
     public static final int number=0x7f040011;
-    public static final int producedate=0x7f040012;
-    public static final int smallMarker=0x7f040013;
-    public static final int tableRow1=0x7f040014;
-    public static final int tableRow2=0x7f040015;
-    public static final int textView2=0x7f040016;
-    public static final int textViewCardNum=0x7f040017;
-    public static final int textViewID=0x7f040018;
-    public static final int textViewReset=0x7f040019;
-    public static final int title_left_text=0x7f04001a;
-    public static final int title_right_text=0x7f04001b;
+    public static final int numberAdd=0x7f040012;
+    public static final int producedate=0x7f040013;
+    public static final int smallMarker=0x7f040014;
+    public static final int tableRow1=0x7f040015;
+    public static final int tableRow2=0x7f040016;
+    public static final int textView2=0x7f040017;
+    public static final int textViewCardNum=0x7f040018;
+    public static final int textViewID=0x7f040019;
+    public static final int textViewReset=0x7f04001a;
+    public static final int title_left_text=0x7f04001b;
+    public static final int title_right_text=0x7f04001c;
   }
   public static final class layout {
     public static final int activity_enforcement_bill=0x7f050000;

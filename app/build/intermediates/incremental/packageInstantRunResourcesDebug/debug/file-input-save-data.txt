@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed May 23 21:41:06 CST 2018
+#Mon Jun 11 23:27:55 CST 2018
 25.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-xxhdpi-v4/ic_launcher.png
 25.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 22.set=ANDROID_RESOURCE
@@ -21,12 +21,12 @@ count=34
 0.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/AndroidManifest.xml
 0.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 21.set=ANDROID_RESOURCE
-20.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/xml/pref_general.xml
+20.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/date.png
 7.set=ANDROID_RESOURCE
 20.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 10.set=ANDROID_RESOURCE
 31.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/layout/custom_title.xml
-15.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/lot.png
+15.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/data.png
 31.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 15.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 26.set=ANDROID_RESOURCE
@@ -39,11 +39,11 @@ count=34
 1.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 1.set=ANDROID_RESOURCE
 31.set=ANDROID_RESOURCE
-21.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/date.png
+21.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/xml/pref_general.xml
 21.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 20.set=ANDROID_RESOURCE
 32.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/gongzhang.png
-16.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/data.png
+16.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/lot.png
 32.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 6.set=ANDROID_RESOURCE
 16.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_

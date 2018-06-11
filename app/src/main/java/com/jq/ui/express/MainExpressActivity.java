@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
@@ -41,6 +42,7 @@ public class MainExpressActivity extends Activity {
     boolean rePrint = false;//是否需要重新打印
     private JQPrinter Printer;
     private Button buttonPrint = null;
+    private CheckBox checkBox;
 
     // 订单信息
     private String mnumber = null; // 校准编号
@@ -97,6 +99,7 @@ public class MainExpressActivity extends Activity {
         produceTime = ((EditText) findViewById(R.id.producedate)).getText().toString();
         limiteddate = ((EditText) findViewById(R.id.limiteddate)).getText().toString();
         mPrinterNumber = ((EditText)findViewById(R.id.PrinterNumber)).getText().toString();
+        checkBox = (CheckBox)findViewById(R.id.numberAdd);
     }
 
 
@@ -147,18 +150,23 @@ public class MainExpressActivity extends Activity {
             //大标签打印
             if (codeFlage == 1)
             {
-                jpl.page.start(0, 0, 576, 150, PAGE_ROTATE.x0);
+                jpl.page.start(0, 0, 576, 240, PAGE_ROTATE.x0);
                 //Number
-                jpl.text.drawOut(150, 0, "校准编号No：");
-                jpl.text.drawOut(350, 0, mnumber);
-
-                //LimitedDate
-                jpl.text.drawOut(150, 32, "校准时间Done：");
-                jpl.text.drawOut(350, 32, limiteddate);
+                //校准编号No
+                jpl.text.drawOut(260, 55, mnumber);
 
                 //ProduceDate
-                jpl.text.drawOut(150, 63, "到期时间Due：");
-                jpl.text.drawOut(350, 63, produceTime);
+                //校准时间Due
+                jpl.text.drawOut(260, 100, produceTime);
+
+                //LimitedDate
+                //到期时间Done
+                jpl.text.drawOut(260, 145, limiteddate);
+
+                //流水号自增
+                if (checkBox.isChecked()) {
+                    mnumber = String.valueOf(Integer.parseInt(mnumber) + 1);
+                }
             }
 
             //小标签打印

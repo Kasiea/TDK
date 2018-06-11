@@ -133,8 +133,13 @@
                  />
 
              </RadioGroup>
+
+             <CheckBox
+                 android:id="@+id/numberAdd"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="校准编号自增"/>
         </TableLayout>
-            
 
         <Button
             android:id="@+id/Print"
