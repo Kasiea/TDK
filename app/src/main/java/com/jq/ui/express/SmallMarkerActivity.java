@@ -127,14 +127,14 @@ public class SmallMarkerActivity extends Activity {
             //小标签打印
             jpl.page.start(0, 0, 576, 160, PAGE_ROTATE.x0);
             //左标签
-            jpl.text.drawOut(90, 10, mnumberLeft);
-            jpl.text.drawOut(90, 50, limiteddateLeft);
-            jpl.text.drawOut(90, 90, produceTimeLeft);
+            jpl.text.drawOut(130, 10, mnumberLeft);
+            jpl.text.drawOut(130, 50, limiteddateLeft);
+            jpl.text.drawOut(130, 90, produceTimeLeft);
 
             //右标签
-            jpl.text.drawOut(350, 10, mnumberRight);
-            jpl.text.drawOut(350, 50, limiteddateRight);
-            jpl.text.drawOut(350, 90, produceTimeRight);
+            jpl.text.drawOut(390, 10, mnumberRight);
+            jpl.text.drawOut(390, 50, limiteddateRight);
+            jpl.text.drawOut(390, 90, produceTimeRight);
 
             jpl.page.end();
             jpl.page.print();

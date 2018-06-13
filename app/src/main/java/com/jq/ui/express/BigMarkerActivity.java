@@ -123,15 +123,15 @@ public class BigMarkerActivity extends Activity {
             jpl.page.start(0, 0, 576, 240, PAGE_ROTATE.x0);
             //Number
             //校准编号No
-            jpl.text.drawOut(270, 55, mnumber);
+            jpl.text.drawOut(275, 55, mnumber);
 
             //ProduceDate
             //校准时间Due
-            jpl.text.drawOut(270, 100, produceTime);
+            jpl.text.drawOut(275, 100, produceTime);
 
             //LimitedDate
             //到期时间Done
-            jpl.text.drawOut(270, 145, limiteddate);
+            jpl.text.drawOut(275, 145, limiteddate);
 
             //流水号自增
             if (checkBox.isChecked()) {
