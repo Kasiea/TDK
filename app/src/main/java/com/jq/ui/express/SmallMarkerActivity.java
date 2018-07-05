@@ -1,8 +1,11 @@
 package com.jq.ui.express;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -45,6 +48,18 @@ public class SmallMarkerActivity extends Activity {
     private String produceTimeRight = null;//校准时间右
     private String limiteddateRight = null; // 到期时间右
 
+    //组件
+    private EditText numberLeftEditText;
+    private EditText produceTimeLeftEditText;
+    private EditText limiteDateLeftEditText;
+    private EditText numberRightEditText;
+    private EditText produceTimeRightEditText;
+    private EditText limiteDateRightEditText;
+
+    //数据存储
+    private SharedPreferences sharedPreferences;//数据保存
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +78,36 @@ public class SmallMarkerActivity extends Activity {
 
     //初始化组件
     private void initView() {
+        //数据存储设置
+        sharedPreferences = getSharedPreferences("SavedData", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        //时间设置
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");//可以方便地修改日期格式
+        Calendar calendar = Calendar.getInstance();
+
+        //获取组件
         buttonPrint = (Button) findViewById(R.id.Print);
+        numberLeftEditText = (EditText)findViewById(R.id.numberLeft);
+        produceTimeLeftEditText = (EditText)findViewById(R.id.producedateLeft);
+        limiteDateLeftEditText = (EditText)findViewById(R.id.limiteddateLeft);
+        numberRightEditText = (EditText)findViewById(R.id.numberRight);
+        produceTimeRightEditText = (EditText)findViewById(R.id.producedateRight);
+        limiteDateRightEditText = (EditText)findViewById(R.id.limiteddateRight);
+
+        //设置数据
+        numberLeftEditText.setText(sharedPreferences.getString("mnumberLeft", ""));
+        numberRightEditText.setText(sharedPreferences.getString("mnumberRight", ""));
+        produceTimeLeftEditText.setText(dateFormat.format(now));
+        produceTimeRightEditText.setText(dateFormat.format(now));
+
+        //自增年份
+        calendar.setTime(now);
+        calendar.add(Calendar.YEAR, 1);//增加一年
+        Date nextYear = calendar.getTime();
+        limiteDateLeftEditText.setText(dateFormat.format(nextYear) );
+        limiteDateRightEditText.setText(dateFormat.format(nextYear) );
     }
 
     //获取打印机数据
@@ -79,6 +123,11 @@ public class SmallMarkerActivity extends Activity {
                 .getText().toString();
         produceTimeRight = ((EditText) findViewById(R.id.producedateRight)).getText().toString();
         limiteddateRight = ((EditText) findViewById(R.id.limiteddateRight)).getText().toString();
+
+        //保存数据
+        editor.putString("mnumberLeft", mnumberLeft);
+        editor.putString("mnumberRight", mnumberRight);
+        editor.commit();
     }
 
 
@@ -123,18 +172,19 @@ public class SmallMarkerActivity extends Activity {
 //			jpl.feedMarkOrGap(0);
 //			jpl.feedNextLabelEnd(0);
 
+            int width = 10;
 
             //小标签打印
             jpl.page.start(0, 0, 576, 160, PAGE_ROTATE.x0);
             //左标签
-            jpl.text.drawOut(130, 10, mnumberLeft);
-            jpl.text.drawOut(130, 50, limiteddateLeft);
-            jpl.text.drawOut(130, 90, produceTimeLeft);
+            jpl.text.drawOut(130 + width, 15, mnumberLeft);
+            jpl.text.drawOut(130 + width, 55, produceTimeLeft);
+            jpl.text.drawOut(130 + width, 90, limiteddateLeft);
 
             //右标签
-            jpl.text.drawOut(390, 10, mnumberRight);
-            jpl.text.drawOut(390, 50, limiteddateRight);
-            jpl.text.drawOut(390, 90, produceTimeRight);
+            jpl.text.drawOut(390 + width, 15, mnumberRight);
+            jpl.text.drawOut(390 + width, 55, produceTimeRight);
+            jpl.text.drawOut(390 + width, 90, limiteddateRight);
 
             jpl.page.end();
             jpl.page.print();

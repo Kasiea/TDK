@@ -1,9 +1,14 @@
 package com.jq.ui.express;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import android.app.Activity;
+import android.app.Application;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -36,11 +41,22 @@ public class BigMarkerActivity extends Activity {
     private Button buttonPrint = null;
     private CheckBox checkBox;
 
+    //组件
+    private EditText numberHeadEditText;
+    private EditText numberEditText;
+    private EditText produceTimeEditText;
+    private EditText limiteDateEditTexxt;
+
     // 订单信息
+    private String numberHead = null;//校准编号头
     private String mnumber = null; // 校准编号
     private String produceTime = null;//校准时间
     private String limiteddate = null; // 到期时间
     private String mPrinterNumber = "1";//打印张数，默认为1
+
+    //数据存储
+    private SharedPreferences sharedPreferences;//数据保存
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,20 +76,49 @@ public class BigMarkerActivity extends Activity {
 
     //初始化组件
     private void initView() {
-        buttonPrint = (Button) findViewById(R.id.Print);
+        //数据存储设置
+        sharedPreferences = getSharedPreferences("SavedData", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
+        //时间设置
+        Date now = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");//可以方便地修改日期格式
+        Calendar calendar = Calendar.getInstance();
+
+        //获取组件
+        buttonPrint = (Button) findViewById(R.id.Print);
+        numberHeadEditText = (EditText)findViewById(R.id.numberHead);
+        numberEditText = (EditText)findViewById(R.id.number);
+        produceTimeEditText = (EditText)findViewById(R.id.producedate);
+        limiteDateEditTexxt  =(EditText)findViewById(R.id.limiteddate);
+
+        //设置数据
+        numberHeadEditText.setText(sharedPreferences.getString("numberHead",""));
+        numberEditText.setText(sharedPreferences.getString("mnumber", ""));
+        produceTimeEditText.setText(dateFormat.format(now));
+
+        //自增年份
+        calendar.setTime(now);
+        calendar.add(Calendar.YEAR, 1);//增加一年
+        Date nextYear = calendar.getTime();
+        limiteDateEditTexxt.setText(dateFormat.format(nextYear) );
     }
 
     //获取打印机数据
     private void getPrintData() {
+        numberHead = ((EditText) findViewById(R.id.numberHead)).getText().toString();
         mnumber = ((EditText) findViewById(R.id.number))
                 .getText().toString();
         produceTime = ((EditText) findViewById(R.id.producedate)).getText().toString();
         limiteddate = ((EditText) findViewById(R.id.limiteddate)).getText().toString();
         mPrinterNumber = ((EditText) findViewById(R.id.PrinterNumber)).getText().toString();
         checkBox = (CheckBox) findViewById(R.id.numberAdd);
-    }
 
+        //保存数据
+        editor.putString("numberHead", numberHead);
+        editor.putString("mnumber", mnumber);
+        editor.commit();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -119,23 +164,37 @@ public class BigMarkerActivity extends Activity {
 //			jpl.feedMarkOrGap(0);
 //			jpl.feedNextLabelEnd(0);
 
+            int heigth = 5;
+            int width = 20;
+
             //大标签打印
             jpl.page.start(0, 0, 576, 240, PAGE_ROTATE.x0);
+
+            //numberHead
+            //校准编号头
+            jpl.text.drawOut(275 + width, 55 + heigth, numberHead);
+
             //Number
             //校准编号No
-            jpl.text.drawOut(275, 55, mnumber);
+//            jpl.text.drawOut(320 + width, 55 + heigth, mnumber);
+            jpl.text.drawOut(275 + numberHead.length() * 12 + width, 55 + heigth, mnumber);
 
             //ProduceDate
             //校准时间Due
-            jpl.text.drawOut(275, 100, produceTime);
+            jpl.text.drawOut(275 + width, 100 +heigth, produceTime);
 
             //LimitedDate
             //到期时间Done
-            jpl.text.drawOut(275, 145, limiteddate);
+            jpl.text.drawOut(275 + width, 145 + heigth, limiteddate);
 
             //流水号自增
             if (checkBox.isChecked()) {
-                mnumber = String.valueOf(Integer.parseInt(mnumber) + 1);
+                if (mnumber.charAt(0) == '0') {//序列号首位为0
+                    mnumber = "0" + String.valueOf(Integer.parseInt(mnumber) + 1);
+                }
+                else {
+                    mnumber = String.valueOf(Integer.parseInt(mnumber) + 1);
+                }
             }
 
             jpl.page.end();

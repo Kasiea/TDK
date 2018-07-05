@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jun 13 23:35:32 CST 2018
+#Thu Jul 05 22:47:31 CST 2018
 25.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/date.png
 25.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 22.set=ANDROID_RESOURCE
