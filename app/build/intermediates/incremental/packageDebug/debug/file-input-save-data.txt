@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Jul 05 22:47:31 CST 2018
+#Tue Jul 10 21:36:40 CST 2018
 25.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/date.png
 25.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 22.set=ANDROID_RESOURCE
@@ -31,7 +31,7 @@ count=41
 20.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 37.set=ANDROID_RESOURCE
 10.set=ANDROID_RESOURCE
-31.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/ic_launcher.png
+31.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-xhdpi-v4/ic_launcher.png
 15.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/transforms/mergeJavaRes/debug/0.jar/com/jq/jq.rar
 31.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 15.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/transforms/mergeJavaRes/debug/0.jar
@@ -50,7 +50,7 @@ count=41
 21.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/menu/main.xml
 21.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 20.set=ANDROID_RESOURCE
-32.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-xhdpi-v4/ic_launcher.png
+32.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-hdpi-v4/ic_launcher.png
 16.file=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_/res/layout/activity_express_form_main.xml
 32.base=/Users/yeqing/Personal_Project/HQ/TDK/项目代码/JQ_Printer_Demo performence/app/build/intermediates/res/debug/resources-debug.ap_
 6.set=ANDROID_RESOURCE

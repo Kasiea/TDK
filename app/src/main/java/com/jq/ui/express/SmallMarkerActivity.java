@@ -84,7 +84,7 @@ public class SmallMarkerActivity extends Activity {
 
         //时间设置
         Date now = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日");//可以方便地修改日期格式
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");//可以方便地修改日期格式
         Calendar calendar = Calendar.getInstance();
 
         //获取组件
